@@ -1,9 +1,12 @@
-/* ============================= */
-/* REGISTER PAGE */
-/* ============================= */
+/* =========================================================
+   REGISTER PAGE
+   Premium dark glassmorphism design
+   Works with the existing Register.jsx
+   ========================================================= */
 
 .register-container {
     min-height: 100vh;
+    width: 100%;
 
     display: flex;
     justify-content: center;
@@ -15,61 +18,87 @@
     background:
         radial-gradient(
             circle at 15% 20%,
-            rgba(17, 153, 142, 0.45),
-            transparent 35%
+            rgba(79, 209, 197, 0.16),
+            transparent 32%
         ),
         radial-gradient(
             circle at 85% 80%,
-            rgba(56, 239, 125, 0.35),
-            transparent 35%
+            rgba(56, 239, 125, 0.13),
+            transparent 32%
         ),
         linear-gradient(
             135deg,
-            #0f2027,
-            #203a43,
-            #2c5364
+            #05090c,
+            #0b151a,
+            #101c22
         );
+
+    color: #eef4f2;
+
+    font-family:
+        "Inter",
+        "Segoe UI",
+        Arial,
+        sans-serif;
 }
 
 
-/* ============================= */
-/* BACKGROUND ANIMATION */
-/* ============================= */
+/* =========================================================
+   BACKGROUND DOT GRID
+   ========================================================= */
 
-.register-container::before,
+.register-container::before {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    background-image:
+        radial-gradient(
+            rgba(238, 244, 242, 0.055) 1px,
+            transparent 1px
+        );
+
+    background-size: 28px 28px;
+
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   AMBIENT GLOW
+   ========================================================= */
+
 .register-container::after {
     content: "";
 
     position: absolute;
 
-    width: 320px;
-    height: 320px;
+    width: 470px;
+    height: 470px;
+
+    right: -170px;
+    bottom: -190px;
 
     border-radius: 50%;
 
-    filter: blur(10px);
+    background:
+        radial-gradient(
+            circle,
+            rgba(56, 239, 125, 0.18),
+            transparent 68%
+        );
 
-    animation: registerFloat 9s ease-in-out infinite;
-}
+    filter: blur(14px);
 
-.register-container::before {
-    top: -120px;
-    left: -120px;
+    animation:
+        registerGlow 8s ease-in-out infinite;
 
-    background: rgba(17, 153, 142, 0.3);
-}
-
-.register-container::after {
-    right: -120px;
-    bottom: -120px;
-
-    background: rgba(56, 239, 125, 0.25);
-
-    animation-delay: 2s;
+    pointer-events: none;
 }
 
 
-@keyframes registerFloat {
+@keyframes registerGlow {
 
     0%,
     100% {
@@ -77,174 +106,334 @@
     }
 
     50% {
-        transform: translate(0, -35px);
+        transform: translate(-35px, -35px);
     }
 }
 
 
-/* ============================= */
-/* REGISTER BOX */
-/* ============================= */
+/* =========================================================
+   REGISTER BOX
+   ========================================================= */
 
 .register-box {
-    width: 390px;
+    width: 400px;
 
-    padding: 40px;
+    padding: 42px 38px;
 
     position: relative;
     z-index: 2;
 
+    box-sizing: border-box;
+
     text-align: center;
 
-    background: rgba(255, 255, 255, 0.12);
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255, 255, 255, 0.09),
+            rgba(255, 255, 255, 0.035)
+        );
 
-    border: 1px solid rgba(255, 255, 255, 0.22);
+    border:
+        1px solid rgba(255, 255, 255, 0.14);
 
-    border-radius: 24px;
+    border-radius: 20px;
 
-    backdrop-filter: blur(18px);
-
-    -webkit-backdrop-filter: blur(18px);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
 
     box-shadow:
-        0 25px 60px rgba(0, 0, 0, 0.35),
-        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+        0 35px 80px rgba(0, 0, 0, 0.55),
+        inset 0 1px 0 rgba(255, 255, 255, 0.10);
 
-    animation: registerAppear 0.8s ease forwards;
+    animation:
+        registerBoxAppear 0.8s
+        cubic-bezier(0.22, 1, 0.36, 1)
+        forwards;
+
+    transition:
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
 }
 
 
-@keyframes registerAppear {
+.register-box:hover {
+    border-color:
+        rgba(79, 209, 197, 0.30);
 
-    from {
+    box-shadow:
+        0 40px 90px rgba(0, 0, 0, 0.65),
+        0 0 35px rgba(79, 209, 197, 0.07),
+        inset 0 1px 0 rgba(255, 255, 255, 0.12);
+}
+
+
+@keyframes registerBoxAppear {
+
+    0% {
         opacity: 0;
-        transform: translateY(40px) scale(0.95);
+
+        transform:
+            translateY(35px)
+            scale(0.94);
     }
 
-    to {
+    100% {
         opacity: 1;
-        transform: translateY(0) scale(1);
+
+        transform:
+            translateY(0)
+            scale(1);
     }
 }
 
 
-/* ============================= */
-/* HEADING */
-/* ============================= */
+/* =========================================================
+   TOP ACCENT LINE
+   ========================================================= */
+
+.register-box::after {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 15%;
+
+    width: 70%;
+    height: 1px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(79, 209, 197, 0.65),
+            transparent
+        );
+
+    opacity: 0.9;
+}
+
+
+/* =========================================================
+   HEADING
+   ========================================================= */
 
 .register-box h1 {
-    margin-bottom: 28px;
+    margin: 0 0 30px;
 
-    color: white;
+    color: #eef4f2;
 
-    font-size: 36px;
+    font-family:
+        "Bricolage Grotesque",
+        "Segoe UI",
+        Arial,
+        sans-serif;
 
-    letter-spacing: 1px;
+    font-size: 38px;
 
-    animation: registerTitle 0.9s ease;
+    font-weight: 800;
+
+    letter-spacing: -1px;
+
+    text-shadow:
+        0 0 25px rgba(79, 209, 197, 0.10);
+
+    animation:
+        registerTitle 0.9s ease;
+}
+
+
+.register-box h1::before {
+    content: "CREATE ACCOUNT";
+
+    display: block;
+
+    margin-bottom: 9px;
+
+    color: #4fd1c5;
+
+    font-family:
+        "Space Mono",
+        monospace;
+
+    font-size: 10px;
+
+    font-weight: 400;
+
+    letter-spacing: 3px;
+
+    opacity: 0.9;
 }
 
 
 @keyframes registerTitle {
 
-    from {
+    0% {
         opacity: 0;
-        transform: translateY(-15px);
+
+        transform:
+            translateY(-15px);
     }
 
-    to {
+    100% {
         opacity: 1;
-        transform: translateY(0);
+
+        transform:
+            translateY(0);
     }
 }
 
 
-/* ============================= */
-/* INPUTS */
-/* ============================= */
+/* =========================================================
+   FORM
+   ========================================================= */
+
+.register-box form {
+    width: 100%;
+}
+
+
+/* =========================================================
+   INPUTS
+   ========================================================= */
 
 .register-box input {
     width: 100%;
 
-    padding: 14px 16px;
+    height: 50px;
 
-    margin: 9px 0;
+    padding:
+        0 16px;
 
-    border: 1px solid rgba(255, 255, 255, 0.25);
+    margin:
+        7px 0;
 
-    border-radius: 12px;
+    box-sizing: border-box;
 
     outline: none;
 
-    font-size: 15px;
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.12);
 
-    color: white;
+    border-radius: 11px;
 
-    background: rgba(255, 255, 255, 0.1);
+    background:
+        rgba(255, 255, 255, 0.045);
+
+    color:
+        #eef4f2;
+
+    font-family:
+        "Inter",
+        "Segoe UI",
+        Arial,
+        sans-serif;
+
+    font-size:
+        14px;
 
     transition:
-        0.3s ease,
-        transform 0.3s ease,
-        box-shadow 0.3s ease;
+        border-color 0.25s ease,
+        background 0.25s ease,
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
 }
 
 
 .register-box input::placeholder {
-    color: rgba(255, 255, 255, 0.7);
+    color:
+        rgba(238, 244, 242, 0.42);
+}
+
+
+.register-box input:hover {
+    border-color:
+        rgba(255, 255, 255, 0.22);
+
+    background:
+        rgba(255, 255, 255, 0.065);
 }
 
 
 .register-box input:focus {
-    border-color: #38ef7d;
+    border-color:
+        rgba(79, 209, 197, 0.70);
 
-    background: rgba(255, 255, 255, 0.16);
+    background:
+        rgba(79, 209, 197, 0.045);
 
-    transform: translateY(-2px);
+    transform:
+        translateY(-2px);
 
     box-shadow:
-        0 0 0 3px rgba(56, 239, 125, 0.15),
-        0 8px 20px rgba(0, 0, 0, 0.15);
+        0 0 0 3px
+        rgba(79, 209, 197, 0.08),
+
+        0 10px 25px
+        rgba(0, 0, 0, 0.20);
 }
 
 
-/* ============================= */
-/* REGISTER BUTTON */
-/* ============================= */
+/* =========================================================
+   REGISTER BUTTON
+   ========================================================= */
 
 .register-box button {
     width: 100%;
 
-    padding: 14px;
+    height: 50px;
+
+    padding: 0;
 
     margin-top: 18px;
 
     border: none;
 
-    border-radius: 12px;
+    border-radius: 11px;
 
-    background: linear-gradient(
-        135deg,
-        #11998e,
-        #38ef7d
-    );
+    background:
+        linear-gradient(
+            110deg,
+            #11998e,
+            #38ef7d
+        );
 
-    color: white;
+    color:
+        #07110d;
 
-    font-size: 16px;
+    font-family:
+        "Inter",
+        "Segoe UI",
+        Arial,
+        sans-serif;
 
-    font-weight: bold;
+    font-size:
+        14px;
 
-    cursor: pointer;
+    font-weight:
+        700;
 
-    position: relative;
+    cursor:
+        pointer;
 
-    overflow: hidden;
+    position:
+        relative;
+
+    overflow:
+        hidden;
 
     transition:
-        transform 0.3s ease,
-        box-shadow 0.3s ease;
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        filter 0.25s ease;
 }
 
+
+/* =========================================================
+   BUTTON SHIMMER
+   ========================================================= */
 
 .register-box button::before {
     content: "";
@@ -252,88 +441,168 @@
     position: absolute;
 
     top: 0;
-    left: -100%;
+    left: -120%;
 
-    width: 100%;
+    width: 80%;
     height: 100%;
 
-    background: linear-gradient(
-        90deg,
-        transparent,
-        rgba(255, 255, 255, 0.3),
-        transparent
-    );
+    transform:
+        skewX(-20deg);
 
-    transition: 0.5s;
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255, 255, 255, 0.40),
+            transparent
+        );
+
+    transition:
+        left 0.65s ease;
 }
 
 
 .register-box button:hover::before {
-    left: 100%;
+    left: 140%;
 }
 
 
 .register-box button:hover {
-    transform: translateY(-3px);
+    transform:
+        translateY(-3px);
+
+    filter:
+        brightness(1.06);
 
     box-shadow:
-        0 12px 25px rgba(56, 239, 125, 0.25);
+        0 16px 35px -12px
+        rgba(56, 239, 125, 0.45),
+
+        0 0 25px
+        rgba(79, 209, 197, 0.10);
 }
 
 
 .register-box button:active {
-    transform: scale(0.98);
+    transform:
+        translateY(0)
+        scale(0.98);
 }
 
 
-/* ============================= */
-/* BOTTOM TEXT */
-/* ============================= */
+/* =========================================================
+   BOTTOM TEXT
+   ========================================================= */
 
 .register-box p {
-    margin-top: 20px;
+    margin:
+        20px 0 0;
 
-    color: rgba(255, 255, 255, 0.8);
+    color:
+        #90a3a3;
 
-    font-size: 14px;
+    font-size:
+        13px;
+
+    line-height:
+        1.6;
 }
 
 
-/* ============================= */
-/* LOGIN LINK */
-/* ============================= */
+/* =========================================================
+   LOGIN LINK
+   ========================================================= */
 
 .register-box span {
-    color: #64ff9a;
+    color:
+        #4fd1c5;
 
-    font-weight: bold;
+    font-weight:
+        700;
 
-    cursor: pointer;
+    cursor:
+        pointer;
 
-    transition: 0.3s ease;
+    transition:
+        color 0.25s ease,
+        text-shadow 0.25s ease;
 }
 
 
 .register-box span:hover {
-    color: white;
+    color:
+        #9af0e8;
 
     text-shadow:
-        0 0 10px rgba(56, 239, 125, 0.8);
+        0 0 14px
+        rgba(79, 209, 197, 0.55);
 }
 
 
-/* ============================= */
-/* MOBILE */
-/* ============================= */
+/* =========================================================
+   MOBILE
+   ========================================================= */
 
 @media (max-width: 500px) {
 
+    .register-container {
+        padding:
+            20px;
+    }
+
     .register-box {
-        width: 90%;
-        padding: 30px 22px;
+        width:
+            100%;
+
+        padding:
+            35px 24px;
+
+        border-radius:
+            17px;
     }
 
     .register-box h1 {
-        font-size: 30px;
+        font-size:
+            32px;
+    }
+}
+
+
+/* =========================================================
+   VERY SMALL DEVICES
+   ========================================================= */
+
+@media (max-width: 350px) {
+
+    .register-box {
+        padding:
+            30px 18px;
+    }
+
+    .register-box h1 {
+        font-size:
+            29px;
+    }
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .register-container::after,
+    .register-box,
+    .register-box h1 {
+        animation:
+            none;
+    }
+
+    .register-box button,
+    .register-box input,
+    .register-box span {
+        transition:
+            none;
     }
 }
