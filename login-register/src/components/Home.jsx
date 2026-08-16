@@ -475,7 +475,7 @@ function HeroCard({ data, active, photoSrc, photoAlt }) {
               <span className="punc">);</span>
             </p>
             <div className="hero-card__hint">
-              <Icon.flip /> hover or tap to flip
+              {/* <Icon.flip /> hover or tap to flip */}
             </div>
           </div>
         </div>
@@ -490,8 +490,8 @@ function HeroCard({ data, active, photoSrc, photoAlt }) {
             </>
           ) : (
             <div className="hero-card__fallback">
-              <p>Add your photo at</p>
-              <code>{photoSrc}</code>
+              {/* <p>Add your photo at</p>
+              <code>{photoSrc}</code> */}
             </div>
           )}
         </div>
