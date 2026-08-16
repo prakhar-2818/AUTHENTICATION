@@ -441,7 +441,8 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .status-dot {
+  .status-dot,
+  .hero-card {
     animation: none;
   }
   .hero__role,
@@ -525,6 +526,11 @@
   cursor: pointer;
   margin: 0 auto;
   border-radius: var(--radius-lg);
+
+  /* Continuous 3D rotation */
+  transform-style: preserve-3d;
+  will-change: transform;
+  animation: hero-card-rotate 8s linear infinite;
 }
 
 .hero-card__inner {
@@ -543,6 +549,28 @@
   .hero-card:hover .hero-card__inner {
     transform: rotateY(180deg);
   }
+}
+
+@keyframes hero-card-rotate {
+  0% {
+    transform: rotateY(0deg);
+  }
+
+  45% {
+    transform: rotateY(180deg);
+  }
+
+  55% {
+    transform: rotateY(180deg);
+  }
+
+  100% {
+    transform: rotateY(360deg);
+  }
+}
+
+.hero-card:hover {
+  animation-play-state: paused;
 }
 
 .hero-card:focus-visible {
