@@ -86,9 +86,9 @@ const EDUCATION = [
    nownownow.com. Update this every so often; that's the point.
 =========================================================== */
 const NOW = [
-  { label: "studying", value: "DBMS and Operating Systems this semester" },
+  { label: "studying", value: "Data engineering with AWS , Advance database , Deep_learing and Generative_AI" },
   { label: "building", value: "A notes-sharing app for my batch" },
-  { label: "learning", value: "DSA in C++, one problem a day" },
+  { label: "learning", value: "DSA in JAVA, one problem a day" },
   { label: "prepping for", value: "Summer internship applications" },
 ];
 
@@ -475,7 +475,7 @@ function HeroCard({ data, active, photoSrc, photoAlt }) {
               <span className="punc">);</span>
             </p>
             <div className="hero-card__hint">
-              <Icon.flip /> hover or tap to flip
+              {/* <Icon.flip /> hover or tap to flip */}
             </div>
           </div>
         </div>
@@ -490,7 +490,7 @@ function HeroCard({ data, active, photoSrc, photoAlt }) {
             </>
           ) : (
             <div className="hero-card__fallback">
-              <p>Add your photo at</p>
+              {/* <p>Add your photo at</p> */}
               <code>{photoSrc}</code>
             </div>
           )}
