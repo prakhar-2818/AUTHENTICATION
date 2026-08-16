@@ -1,7 +1,5 @@
 /* =========================================================
    REGISTER PAGE
-   Premium dark glassmorphism design
-   Works with the existing Register.jsx
    ========================================================= */
 
 .register-container {
@@ -44,7 +42,7 @@
 
 
 /* =========================================================
-   BACKGROUND DOT GRID
+   GRID
    ========================================================= */
 
 .register-container::before {
@@ -66,7 +64,7 @@
 
 
 /* =========================================================
-   AMBIENT GLOW
+   GREEN AMBIENT GLOW
    ========================================================= */
 
 .register-container::after {
@@ -146,10 +144,13 @@
         0 35px 80px rgba(0, 0, 0, 0.55),
         inset 0 1px 0 rgba(255, 255, 255, 0.10);
 
+    transform-style: preserve-3d;
+
     animation:
-        registerBoxAppear 0.8s
-        cubic-bezier(0.22, 1, 0.36, 1)
-        forwards;
+        registerAppear 0.5s ease forwards,
+        registerRotate 2.5s ease-in-out 0.5s 1;
+
+    animation-fill-mode: forwards;
 
     transition:
         border-color 0.3s ease,
@@ -163,12 +164,15 @@
 
     box-shadow:
         0 40px 90px rgba(0, 0, 0, 0.65),
-        0 0 35px rgba(79, 209, 197, 0.07),
-        inset 0 1px 0 rgba(255, 255, 255, 0.12);
+        0 0 35px rgba(79, 209, 197, 0.07);
 }
 
 
-@keyframes registerBoxAppear {
+/* =========================================================
+   APPEAR
+   ========================================================= */
+
+@keyframes registerAppear {
 
     0% {
         opacity: 0;
@@ -189,29 +193,34 @@
 
 
 /* =========================================================
-   TOP ACCENT LINE
+   FAST 5 ROTATIONS
    ========================================================= */
 
-.register-box::after {
-    content: "";
+@keyframes registerRotate {
 
-    position: absolute;
+    0% {
+        transform: rotateY(0deg);
+    }
 
-    top: 0;
-    left: 15%;
+    20% {
+        transform: rotateY(720deg);
+    }
 
-    width: 70%;
-    height: 1px;
+    40% {
+        transform: rotateY(1440deg);
+    }
 
-    background:
-        linear-gradient(
-            90deg,
-            transparent,
-            rgba(79, 209, 197, 0.65),
-            transparent
-        );
+    60% {
+        transform: rotateY(2160deg);
+    }
 
-    opacity: 0.9;
+    80% {
+        transform: rotateY(2880deg);
+    }
+
+    100% {
+        transform: rotateY(3600deg);
+    }
 }
 
 
@@ -224,23 +233,14 @@
 
     color: #eef4f2;
 
-    font-family:
-        "Bricolage Grotesque",
-        "Segoe UI",
-        Arial,
-        sans-serif;
-
     font-size: 38px;
 
     font-weight: 800;
 
     letter-spacing: -1px;
 
-    text-shadow:
-        0 0 25px rgba(79, 209, 197, 0.10);
-
     animation:
-        registerTitle 0.9s ease;
+        registerTitle 0.8s ease;
 }
 
 
@@ -262,8 +262,6 @@
     font-weight: 400;
 
     letter-spacing: 3px;
-
-    opacity: 0.9;
 }
 
 
@@ -303,36 +301,25 @@
 
     height: 50px;
 
-    padding:
-        0 16px;
+    padding: 0 16px;
 
-    margin:
-        7px 0;
+    margin: 7px 0;
 
     box-sizing: border-box;
 
     outline: none;
 
     border:
-        1px solid
-        rgba(255, 255, 255, 0.12);
+        1px solid rgba(255, 255, 255, 0.12);
 
     border-radius: 11px;
 
     background:
         rgba(255, 255, 255, 0.045);
 
-    color:
-        #eef4f2;
+    color: #eef4f2;
 
-    font-family:
-        "Inter",
-        "Segoe UI",
-        Arial,
-        sans-serif;
-
-    font-size:
-        14px;
+    font-size: 14px;
 
     transition:
         border-color 0.25s ease,
@@ -368,16 +355,13 @@
         translateY(-2px);
 
     box-shadow:
-        0 0 0 3px
-        rgba(79, 209, 197, 0.08),
-
-        0 10px 25px
-        rgba(0, 0, 0, 0.20);
+        0 0 0 3px rgba(79, 209, 197, 0.08),
+        0 10px 25px rgba(0, 0, 0, 0.20);
 }
 
 
 /* =========================================================
-   REGISTER BUTTON
+   BUTTON
    ========================================================= */
 
 .register-box button {
@@ -400,29 +384,17 @@
             #38ef7d
         );
 
-    color:
-        #07110d;
+    color: #07110d;
 
-    font-family:
-        "Inter",
-        "Segoe UI",
-        Arial,
-        sans-serif;
+    font-size: 14px;
 
-    font-size:
-        14px;
+    font-weight: 700;
 
-    font-weight:
-        700;
+    cursor: pointer;
 
-    cursor:
-        pointer;
+    position: relative;
 
-    position:
-        relative;
-
-    overflow:
-        hidden;
+    overflow: hidden;
 
     transition:
         transform 0.25s ease,
@@ -430,10 +402,6 @@
         filter 0.25s ease;
 }
 
-
-/* =========================================================
-   BUTTON SHIMMER
-   ========================================================= */
 
 .register-box button::before {
     content: "";
@@ -446,8 +414,7 @@
     width: 80%;
     height: 100%;
 
-    transform:
-        skewX(-20deg);
+    transform: skewX(-20deg);
 
     background:
         linear-gradient(
@@ -476,10 +443,7 @@
 
     box-shadow:
         0 16px 35px -12px
-        rgba(56, 239, 125, 0.45),
-
-        0 0 25px
-        rgba(79, 209, 197, 0.10);
+        rgba(56, 239, 125, 0.45);
 }
 
 
@@ -491,7 +455,7 @@
 
 
 /* =========================================================
-   BOTTOM TEXT
+   TEXT
    ========================================================= */
 
 .register-box p {
@@ -534,8 +498,32 @@
         #9af0e8;
 
     text-shadow:
-        0 0 14px
-        rgba(79, 209, 197, 0.55);
+        0 0 14px rgba(79, 209, 197, 0.55);
+}
+
+
+/* =========================================================
+   TOP LINE
+   ========================================================= */
+
+.register-box::after {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 15%;
+
+    width: 70%;
+    height: 1px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(79, 209, 197, 0.65),
+            transparent
+        );
 }
 
 
@@ -546,42 +534,17 @@
 @media (max-width: 500px) {
 
     .register-container {
-        padding:
-            20px;
+        padding: 20px;
     }
 
     .register-box {
-        width:
-            100%;
+        width: 100%;
 
-        padding:
-            35px 24px;
-
-        border-radius:
-            17px;
+        padding: 35px 24px;
     }
 
     .register-box h1 {
-        font-size:
-            32px;
-    }
-}
-
-
-/* =========================================================
-   VERY SMALL DEVICES
-   ========================================================= */
-
-@media (max-width: 350px) {
-
-    .register-box {
-        padding:
-            30px 18px;
-    }
-
-    .register-box h1 {
-        font-size:
-            29px;
+        font-size: 32px;
     }
 }
 
@@ -595,14 +558,6 @@
     .register-container::after,
     .register-box,
     .register-box h1 {
-        animation:
-            none;
-    }
-
-    .register-box button,
-    .register-box input,
-    .register-box span {
-        transition:
-            none;
+        animation: none;
     }
 }
