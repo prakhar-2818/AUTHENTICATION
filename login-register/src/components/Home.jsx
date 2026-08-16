@@ -484,7 +484,7 @@ function HeroCard({ data, active, photoSrc, photoAlt }) {
         <div className="hero-card__face hero-card__face--back">
           {!imgError ? (
             <>
-              <img src=profile-photo.jpeg alt={photoAlt} className="hero-card__photo" onError={() => setImgError(true)} />
+              <img src=profile-image.jpeg alt={photoAlt} className="hero-card__photo" onError={() => setImgError(true)} />
               <div className="hero-card__photo-overlay" />
               <p className="hero-card__photo-name">{data.name}</p>
             </>
