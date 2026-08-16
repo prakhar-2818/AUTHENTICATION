@@ -530,7 +530,7 @@
   /* Continuous 3D rotation */
   transform-style: preserve-3d;
   will-change: transform;
-  animation: hero-card-rotate 8s linear infinite;
+  animation: hero-card-rotate 10s linear infinite;
 }
 
 .hero-card__inner {
