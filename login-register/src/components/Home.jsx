@@ -18,7 +18,7 @@ const AVAILABILITY = "Open to internships";
 /* Swap this for your own photo — drop the file in /public and point
    this at it, e.g. "/profile-photo.jpg". The hero card flips to show
    it on hover (desktop) or tap (mobile). */
-const PHOTO_SRC = "/profile-photo.jpg";
+const PHOTO_SRC = "/profile-image.jpg";
 const PHOTO_ALT = `Photo of ${NAME}`;
 
 const HERO_OBJECT = {
