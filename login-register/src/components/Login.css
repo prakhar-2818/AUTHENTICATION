@@ -637,3 +637,54 @@
             none;
     }
 }
+/* =========================================================
+   3D CARD INTRO ROTATION
+   ========================================================= */
+
+.login-box {
+    transform-style: preserve-3d;
+    perspective: 1200px;
+
+    animation:
+        loginBoxAppear 0.8s ease forwards,
+        loginCardRotate 6s ease-in-out 1;
+    
+    animation-delay: 0s, 0.8s;
+    animation-fill-mode: forwards;
+}
+
+
+@keyframes loginCardRotate {
+
+    0% {
+        transform: rotateY(0deg);
+    }
+
+    12% {
+        transform: rotateY(0deg);
+    }
+
+    32% {
+        transform: rotateY(360deg);
+    }
+
+    42% {
+        transform: rotateY(360deg);
+    }
+
+    62% {
+        transform: rotateY(720deg);
+    }
+
+    72% {
+        transform: rotateY(720deg);
+    }
+
+    92% {
+        transform: rotateY(1080deg);
+    }
+
+    100% {
+        transform: rotateY(1080deg);
+    }
+}
