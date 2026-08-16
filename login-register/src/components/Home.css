@@ -542,7 +542,7 @@
 }
 
 .hero-card__inner--flipped {
-  transform: rotateY(180deg);
+  transform: rotateY(185deg);
 }
 
 @media (hover: hover) and (pointer: fine) {
