@@ -1,7 +1,5 @@
 /* =========================================================
    LOGIN PAGE
-   Dark premium glassmorphism design
-   Works with the existing Login.jsx
    ========================================================= */
 
 .login-container {
@@ -66,7 +64,7 @@
 
 
 /* =========================================================
-   AMBIENT GLOW
+   BACKGROUND GLOW
    ========================================================= */
 
 .login-container::after {
@@ -89,7 +87,7 @@
             transparent 68%
         );
 
-    filter: blur(12px);
+    filter: blur(14px);
 
     animation:
         loginGlow 7s ease-in-out infinite;
@@ -146,10 +144,13 @@
         0 35px 80px rgba(0, 0, 0, 0.55),
         inset 0 1px 0 rgba(255, 255, 255, 0.10);
 
+    transform-style: preserve-3d;
+
     animation:
-        loginBoxAppear 0.8s
-        cubic-bezier(0.22, 1, 0.36, 1)
-        forwards;
+        loginAppear 0.5s ease forwards,
+        loginRotate 2.5s ease-in-out 0.5s 1;
+
+    animation-fill-mode: forwards;
 
     transition:
         border-color 0.3s ease,
@@ -168,7 +169,11 @@
 }
 
 
-@keyframes loginBoxAppear {
+/* =========================================================
+   APPEAR
+   ========================================================= */
+
+@keyframes loginAppear {
 
     0% {
         opacity: 0;
@@ -184,6 +189,39 @@
         transform:
             translateY(0)
             scale(1);
+    }
+}
+
+
+/* =========================================================
+   FAST 5 ROTATIONS
+   3600deg = 5 COMPLETE ROTATIONS
+   ========================================================= */
+
+@keyframes loginRotate {
+
+    0% {
+        transform: rotateY(0deg);
+    }
+
+    20% {
+        transform: rotateY(720deg);
+    }
+
+    40% {
+        transform: rotateY(1440deg);
+    }
+
+    60% {
+        transform: rotateY(2160deg);
+    }
+
+    80% {
+        transform: rotateY(2880deg);
+    }
+
+    100% {
+        transform: rotateY(3600deg);
     }
 }
 
@@ -213,7 +251,7 @@
         0 0 25px rgba(255, 180, 84, 0.10);
 
     animation:
-        loginTitle 0.9s ease;
+        loginTitle 0.8s ease;
 }
 
 
@@ -276,19 +314,16 @@
 
     height: 50px;
 
-    padding:
-        0 16px;
+    padding: 0 16px;
 
-    margin:
-        7px 0;
+    margin: 7px 0;
 
     box-sizing: border-box;
 
     outline: none;
 
     border:
-        1px solid
-        rgba(255, 255, 255, 0.12);
+        1px solid rgba(255, 255, 255, 0.12);
 
     border-radius: 11px;
 
@@ -339,16 +374,13 @@
         translateY(-2px);
 
     box-shadow:
-        0 0 0 3px
-        rgba(255, 180, 84, 0.08),
-
-        0 10px 25px
-        rgba(0, 0, 0, 0.20);
+        0 0 0 3px rgba(255, 180, 84, 0.08),
+        0 10px 25px rgba(0, 0, 0, 0.20);
 }
 
 
 /* =========================================================
-   LOGIN BUTTON
+   BUTTON
    ========================================================= */
 
 .login-box button {
@@ -373,12 +405,6 @@
 
     color: #15100b;
 
-    font-family:
-        "Inter",
-        "Segoe UI",
-        Arial,
-        sans-serif;
-
     font-size: 14px;
 
     font-weight: 700;
@@ -396,8 +422,6 @@
 }
 
 
-/* Shimmer */
-
 .login-box button::before {
     content: "";
 
@@ -409,8 +433,7 @@
     width: 80%;
     height: 100%;
 
-    transform:
-        skewX(-20deg);
+    transform: skewX(-20deg);
 
     background:
         linear-gradient(
@@ -439,10 +462,7 @@
 
     box-shadow:
         0 16px 35px -12px
-        rgba(255, 122, 89, 0.60),
-
-        0 0 25px
-        rgba(255, 180, 84, 0.10);
+        rgba(255, 122, 89, 0.60);
 }
 
 
@@ -454,7 +474,7 @@
 
 
 /* =========================================================
-   ALL PARAGRAPHS
+   TEXT
    ========================================================= */
 
 .login-box p {
@@ -473,7 +493,7 @@
 
 
 /* =========================================================
-   FORGOT PASSWORD
+   FORGOT LINK
    ========================================================= */
 
 .login-box .forgot-link {
@@ -536,13 +556,12 @@
         #ffd28a;
 
     text-shadow:
-        0 0 14px
-        rgba(255, 180, 84, 0.45);
+        0 0 14px rgba(255, 180, 84, 0.45);
 }
 
 
 /* =========================================================
-   SMALL TOP HIGHLIGHT
+   TOP LINE
    ========================================================= */
 
 .login-box::after {
@@ -560,12 +579,9 @@
         linear-gradient(
             90deg,
             transparent,
-            rgba(255, 180, 84, 0.55),
+            rgba(255, 180, 84, 0.65),
             transparent
         );
-
-    opacity:
-        0.8;
 }
 
 
@@ -576,42 +592,17 @@
 @media (max-width: 500px) {
 
     .login-container {
-        padding:
-            20px;
+        padding: 20px;
     }
 
     .login-box {
-        width:
-            100%;
+        width: 100%;
 
-        padding:
-            35px 24px;
-
-        border-radius:
-            17px;
+        padding: 35px 24px;
     }
 
     .login-box h1 {
-        font-size:
-            34px;
-    }
-}
-
-
-/* =========================================================
-   VERY SMALL DEVICES
-   ========================================================= */
-
-@media (max-width: 350px) {
-
-    .login-box {
-        padding:
-            30px 18px;
-    }
-
-    .login-box h1 {
-        font-size:
-            30px;
+        font-size: 34px;
     }
 }
 
@@ -625,66 +616,6 @@
     .login-container::after,
     .login-box,
     .login-box h1 {
-        animation:
-            none;
-    }
-
-    .login-box button,
-    .login-box input,
-    .login-box span,
-    .login-box .forgot-link {
-        transition:
-            none;
-    }
-}
-/* =========================================================
-   3D CARD INTRO ROTATION
-   ========================================================= */
-
-.login-box {
-    transform-style: preserve-3d;
-    perspective: 1200px;
-
-    animation:
-        loginBoxAppear 0.8s ease forwards,
-        loginCardRotate 6s ease-in-out 1;
-    
-    animation-delay: 0s, 0.8s;
-    animation-fill-mode: forwards;
-}
-
-
-@keyframes loginCardRotate {
-
-    0% {
-        transform: rotateY(0deg);
-    }
-
-    12% {
-        transform: rotateY(0deg);
-    }
-
-    32% {
-        transform: rotateY(360deg);
-    }
-
-    42% {
-        transform: rotateY(360deg);
-    }
-
-    62% {
-        transform: rotateY(720deg);
-    }
-
-    72% {
-        transform: rotateY(720deg);
-    }
-
-    92% {
-        transform: rotateY(1080deg);
-    }
-
-    100% {
-        transform: rotateY(1080deg);
+        animation: none;
     }
 }
