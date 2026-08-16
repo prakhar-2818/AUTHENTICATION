@@ -1,0 +1,298 @@
+/* ============================= */
+/* HOME PAGE */
+/* ============================= */
+
+.home-container {
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    position: relative;
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle at 15% 20%,
+            rgba(102, 126, 234, 0.45),
+            transparent 35%
+        ),
+        radial-gradient(
+            circle at 85% 80%,
+            rgba(118, 75, 162, 0.4),
+            transparent 35%
+        ),
+        linear-gradient(
+            135deg,
+            #101828,
+            #1d2b4f,
+            #35205c
+        );
+}
+
+
+/* ============================= */
+/* FLOATING BACKGROUND */
+/* ============================= */
+
+.home-container::before,
+.home-container::after {
+    content: "";
+
+    position: absolute;
+
+    width: 350px;
+    height: 350px;
+
+    border-radius: 50%;
+
+    filter: blur(15px);
+
+    animation: homeFloat 10s ease-in-out infinite;
+}
+
+.home-container::before {
+    top: -150px;
+    left: -150px;
+
+    background: rgba(102, 126, 234, 0.25);
+}
+
+.home-container::after {
+    right: -150px;
+    bottom: -150px;
+
+    background: rgba(118, 75, 162, 0.25);
+
+    animation-delay: 2s;
+}
+
+
+@keyframes homeFloat {
+
+    0%,
+    100% {
+        transform: translate(0, 0);
+    }
+
+    50% {
+        transform: translateY(-35px);
+    }
+}
+
+
+/* ============================= */
+/* HOME CARD */
+/* ============================= */
+
+.home-card {
+    width: 500px;
+
+    padding: 55px 45px;
+
+    position: relative;
+    z-index: 2;
+
+    text-align: center;
+
+    background: rgba(255, 255, 255, 0.1);
+
+    border: 1px solid rgba(255, 255, 255, 0.2);
+
+    border-radius: 28px;
+
+    backdrop-filter: blur(20px);
+
+    -webkit-backdrop-filter: blur(20px);
+
+    box-shadow:
+        0 30px 70px rgba(0, 0, 0, 0.35),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+
+    animation: homeAppear 0.9s ease forwards;
+}
+
+
+@keyframes homeAppear {
+
+    from {
+        opacity: 0;
+        transform: translateY(45px) scale(0.94);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+
+/* ============================= */
+/* ICON */
+/* ============================= */
+
+.welcome-icon {
+    width: 85px;
+    height: 85px;
+
+    margin: 0 auto 22px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 50%;
+
+    font-size: 42px;
+
+    background: rgba(255, 255, 255, 0.14);
+
+    border: 1px solid rgba(255, 255, 255, 0.2);
+
+    box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.2);
+
+    animation: wave 2s ease-in-out infinite;
+}
+
+
+@keyframes wave {
+
+    0%,
+    100% {
+        transform: rotate(0deg);
+    }
+
+    25% {
+        transform: rotate(8deg);
+    }
+
+    50% {
+        transform: rotate(-8deg);
+    }
+
+    75% {
+        transform: rotate(5deg);
+    }
+}
+
+
+/* ============================= */
+/* HEADING */
+/* ============================= */
+
+.home-card h1 {
+    margin: 0;
+
+    color: white;
+
+    font-size: 48px;
+
+    font-weight: 700;
+
+    letter-spacing: 1px;
+
+    animation: textAppear 0.9s ease;
+}
+
+
+@keyframes textAppear {
+
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* ============================= */
+/* SUBTITLE */
+/* ============================= */
+
+.home-card p {
+    margin-top: 14px;
+
+    color: rgba(255, 255, 255, 0.8);
+
+    font-size: 20px;
+}
+
+
+/* ============================= */
+/* LINE */
+/* ============================= */
+
+.home-line {
+    width: 100px;
+    height: 3px;
+
+    margin: 25px auto;
+
+    border-radius: 10px;
+
+    background: linear-gradient(
+        90deg,
+        #667eea,
+        #a855f7
+    );
+
+    animation: lineGrow 0.8s ease;
+}
+
+
+@keyframes lineGrow {
+
+    from {
+        width: 0;
+    }
+
+    to {
+        width: 100px;
+    }
+}
+
+
+/* ============================= */
+/* MESSAGE */
+/* ============================= */
+
+.home-message {
+    color: rgba(255, 255, 255, 0.7);
+
+    font-size: 14px;
+}
+
+
+/* ============================= */
+/* MOBILE */
+/* ============================= */
+
+@media (max-width: 600px) {
+
+    .home-card {
+        width: 90%;
+
+        padding: 40px 25px;
+    }
+
+    .home-card h1 {
+        font-size: 35px;
+    }
+
+    .home-card p {
+        font-size: 17px;
+    }
+
+    .welcome-icon {
+        width: 70px;
+        height: 70px;
+
+        font-size: 34px;
+    }
+}
