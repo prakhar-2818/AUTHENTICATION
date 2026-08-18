@@ -25,7 +25,7 @@ const HERO_OBJECT = {
   name: NAME,
   role: "CSIT Undergrad",
   college: "KIET",
-  year: 3rd,
+  year: 3,
 };
 
 const ABOUT_EYEBROW = "// a little about me";
