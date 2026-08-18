@@ -23,9 +23,9 @@ const PHOTO_ALT = `Photo of ${NAME}`;
 
 const HERO_OBJECT = {
   name: NAME,
-  role: "CSE Undergrad",
+  role: "CSIT Undergrad",
   college: "KIET",
-  year: 3,
+  year: 3rd,
 };
 
 const ABOUT_EYEBROW = "// a little about me";
