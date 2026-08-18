@@ -8,7 +8,7 @@ import "./Home.css";
 =========================================================== */
 
 const NAME = "Prakhar Shakya";
-const ROLE = "B.Tech CSE Student & Aspiring Full-Stack Developer";
+const ROLE = "B.Tech CSIT Student & Aspiring Full-Stack Developer";
 const TAGLINE =
   "3rd-year Computer Science student at KIET who likes turning coursework into real, working projects.";
 const COLLEGE = "KIET Group of Institutions";
@@ -66,7 +66,7 @@ const EDUCATION = [
   {
     degree: "B.Tech, Computer Science & Engineering",
     school: COLLEGE,
-    period: "2023 — 2027 · 3rd Year",
+    period: "2024 — 2028 · 3rd Year",
     summary:
       "Core coursework in data structures, DBMS, operating systems, and OOP, alongside self-directed web projects to actually apply what's covered in class.",
     focus: ["DSA", "DBMS", "OOP"],
@@ -74,7 +74,7 @@ const EDUCATION = [
   {
     degree: "Senior Secondary (PCM)",
     school: "— add your school here —",
-    period: "2021 — 2023",
+    period: "2020 — 2022",
     summary:
       "Focused on Physics, Chemistry, and Mathematics, and started teaching myself to code in the final year.",
     focus: [],
