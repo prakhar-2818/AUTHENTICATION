@@ -8,7 +8,7 @@ import "./Home.css";
 =========================================================== */
 
 const NAME = "Prakhar Shakya";
-const ROLE = "B.Tech CSIT Student & Aspiring Full-Stack Developer";
+const ROLE = "B.Tech CSIT Student & Aspiring Software Engineer";
 const TAGLINE =
   "3rd-year Computer Science student at KIET who likes turning coursework into real, working projects.";
 const COLLEGE = "KIET Group of Institutions";
