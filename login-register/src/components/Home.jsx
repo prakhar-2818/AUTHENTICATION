@@ -130,7 +130,7 @@ const PROJECTS = [
 const TESTIMONIALS = [
   {
     quote:
-      "Prakhar was one of the few students who showed up to office hours with actual code, not just questions about the exam.",
+      "Prakhar is one of the few students who showed up to office hours with actual code, not just questions about the exam.",
     name: "Dr. A. Verma",
     title: "Professor, KIET Dept. of CSE",
   },
